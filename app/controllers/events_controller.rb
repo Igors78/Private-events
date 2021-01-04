@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.new
   end
 
   # GET /events/1/edit
@@ -22,41 +22,38 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    @event = current_user.events.build(event_params)
+    if @event.save
+      flash[:success] = 'Event has been created!'
+      redirect_to @event
+    else
+      render 'new'
     end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    @event = current_user.events.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:success] = 'Event updated'
+      redirect_to @event
+    else
+      render 'edit'
     end
   end
 
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+    @event = current_user.events.find(params[:id])
+    if @event
+      @event.destroy
+      flash[:success] = 'Event has been deleted'
+    else
+      flash[:alert] = 'Error'
     end
+    redirect_to root_path
   end
 
   private
