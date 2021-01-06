@@ -4,8 +4,10 @@ one:
   description: MyText
   location: MyString
   date: 2021-01-03 21:07:29
+  user_id: 1
 
 two:
   description: MyText
   location: MyString
   date: 2021-01-03 21:07:29
+  user_id: 2
