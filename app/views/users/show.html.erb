@@ -1,20 +1,51 @@
-<div class="offset-4 col-md-4">
-    <h3 class='text-center'>
-        <%= @user.name %>
-    </h3>
-</div>
-<div class="row">
-    <div class="col-md-6">
-
-
-    </div>
-    <div class="col-md-6">
-
-
-        <% if current_user?(@user) %>
-        <%= link_to "Delete #{@user.name}", @user, method: :delete,
+<h3 class='text-center'>
+    <%= @user.name %>
+    <% if current_user?(@user) %>
+    <%= link_to "Delete #{@user.name}", @user, method: :delete,
                                 data: { confirm: "You sure?" },
                                 class:"badge bg-secondary" %>
-        <% end %>
+    <% end %>
+</h3>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="card" style="width: 18rem;">
+            <% @user.invited_to_events.each do |event| %>
+            <div class="card-body">
+                <h5 class="card-title"><%= event.location %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= event.date %></h6>
+                <p class="card-text"><%= event.description %></p>
+                <a href="#" class="card-link"><%= link_to 'Show', event %></a>
+                <%= link_to 'Accept Invite',
+                                { controller: "users", action: "accept_invite",
+                                event_id: event.id },
+                                class:"badge bg-secondary" %>
+
+
+            </div>
+            <% end %>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <% @user.attended_events.each do |event| %>
+            <div class="card-body">
+                <h5 class="card-title"><%= event.location %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= event.date %></h6>
+                <p class="card-text"><%= event.description %></p>
+                <a href="#" class="card-link"><%= link_to 'Show', event %></a>
+                <%= link_to 'Decline Invite',
+                                { controller: "users", action: "decline_invite",
+                                event_id: event.id },
+                                class:"badge bg-secondary" %>
+
+            </div>
+            <% end %>
+        </div>
     </div>
 </div>

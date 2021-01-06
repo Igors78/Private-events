@@ -5,7 +5,18 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users
-  resources :events
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :users do
+    member do
+      get '/accept_invite', to: 'users#accept_invite'
+      get '/decline_invite', to: 'users#decline_invite'
+    end
+  end
+
+  resources :events do
+    member do
+      get '/invite_user', to: 'events#invite_user'
+      get '/dismiss_user', to: 'events#dismiss_user'
+    end
+  end
 end

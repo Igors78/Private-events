@@ -1,0 +1,32 @@
+<%= form_with(model: event, local: true) do |form| %>
+<% if event.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(event.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+    <ul>
+        <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group mb-3">
+    <%= form.label :location, class: "form-label" %>
+    <%= form.text_field :location, class: "form-control" %>
+</div>
+
+<div class="form-group mb-3">
+    <%= form.label :date, class: "form-label" %><br/>
+    <%= form.datetime_select :date, class: "datepicker" %>
+</div>
+
+<div class="form-group mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description,  class: "form-control" %>
+</div>
+
+<div class="actions">
+    <%= form.submit( class: 'btn btn-primary' ) %>
+</div>
+<% end %>
