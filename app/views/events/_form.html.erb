@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="field mb-3">
+    <%= form.label :location, class: "form-label" %>
+    <%= form.text_field :location, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.datetime_select :date, class: "form-select" %>
   </div>
 
   <div class="actions">
