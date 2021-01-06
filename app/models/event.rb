@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :invited_users, through: :invites, class_name: 'User'
   has_many :attendances, inverse_of: :attended_event
   has_many :attendees, through: :attendances, class_name: 'User'
-  validates :content, :location, :date, presence: true
+  validates :description, :location, :date, presence: true
   scope :past, -> { where('date < ?', Date.today) }
   scope :upcoming, -> { where('date >= ?', Date.today) }
 end
