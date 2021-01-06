@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show]
   def show
     @user = User.find(params[:id])
+    @events = Event.all
   end
 
   def index
@@ -27,6 +28,22 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = 'User deleted'
     redirect_to root_path
+  end
+
+  def accept_invite
+    @event = Event.find(params[:event_id])
+    @user = User.find(params[:id])
+    @user.attended_events << @event
+    flash[:success] = " #{@event.description} Accepted!!!"
+    redirect_to "/users/#{@user.id}"
+  end
+
+  def decline_invite
+    @event = Event.find(params[:event_id])
+    @user = User.find(params[:id])
+    @user.attended_events.delete(@event)
+    flash[:danger] = " #{@event.description} Declined!!!"
+    redirect_to "/users/#{@user.id}"
   end
 
   private

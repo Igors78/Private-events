@@ -5,7 +5,14 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users
+
+  resources :users do
+    member do
+      get '/accept_invite', to: 'users#accept_invite'
+      get '/decline_invite', to: 'users#decline_invite'
+    end
+  end
+
   resources :events do
     member do
       get '/invite_user', to: 'events#invite_user'
