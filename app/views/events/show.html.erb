@@ -6,10 +6,17 @@
             <%= @event.description %>
             <%= @event.location %>
             <%= @event.date %>
-
+            <br>
             <% if @event.invited_users.any? %>
             <strong>Users invited:</strong> <br>
             <% @event.invited_users.each do |user| %>
+            <%= user.name %>
+            <% end %>
+            <% end %>
+            <br>
+            <% if @event.attendees.any? %>
+            <strong>Will attend:</strong> <br>
+            <% @event.attendees.each do |user| %>
             <%= user.name %>
             <% end %>
             <% end %>
@@ -40,9 +47,14 @@
                                 class:"badge bg-secondary" %>
             <% end %>
             <% if current_user?(@event.creator) && user != current_user %>
-            <%if @event.invited_users.include?(user)%>
+            <%if @event.invited_users.include?(user) %>
             <%= link_to 'Dismiss',
                                 { controller: "events", action: "dismiss_user",
+                                user_id: user.id },
+                                class:"badge bg-danger" %>
+            <% elsif @event.attendees.include?(user)%>
+            <%= link_to 'Dismiss invite',
+                                { controller: "users", action: "dismiss_invite",
                                 user_id: user.id },
                                 class:"badge bg-danger" %>
             <%else%>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     member do
       get '/invite_user', to: 'events#invite_user'
       get '/dismiss_user', to: 'events#dismiss_user'
+      get '/dismiss_invite', to: 'users#dismiss_invite'
     end
   end
 end

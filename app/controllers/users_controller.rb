@@ -34,7 +34,8 @@ class UsersController < ApplicationController
     @event = Event.find(params[:event_id])
     @user = User.find(params[:id])
     @user.attended_events << @event
-    flash[:success] = " #{@event.description} Accepted!!!"
+    @event.invited_users.delete(@user)
+    flash[:success] = ' Invite Accepted!!!'
     redirect_to "/users/#{@user.id}"
   end
 
@@ -42,8 +43,18 @@ class UsersController < ApplicationController
     @event = Event.find(params[:event_id])
     @user = User.find(params[:id])
     @user.attended_events.delete(@event)
-    flash[:danger] = " #{@event.description} Declined!!!"
+    @event.invited_users << @user
+    flash[:danger] = ' Invite Declined!!!'
     redirect_to "/users/#{@user.id}"
+  end
+
+  def dismiss_invite
+    @event = Event.find(params[:id])
+    @user = User.find(params[:user_id])
+    @user.attended_events.delete(@event)
+
+    flash[:danger] = ' Invite Dismissed!!!'
+    redirect_to "/events/#{@event.id}"
   end
 
   private
