@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy invite_user dismiss_user]
 
   # GET /events
   # GET /events.json
@@ -9,7 +9,9 @@ class EventsController < ApplicationController
 
   # GET /events/1
   # GET /events/1.json
-  def show; end
+  def show
+    @users = User.all
+  end
 
   # GET /events/new
   def new
@@ -54,6 +56,21 @@ class EventsController < ApplicationController
       flash[:alert] = 'Error'
     end
     redirect_to root_path
+  end
+
+  def invite_user
+    @user = User.find(params[:user_id])
+    @event.invited_users << @user
+    flash[:success] = " #{@user.name} invited!!!"
+    redirect_to "/events/#{@event.id}"
+  end
+
+  def dismiss_user
+    @user = User.find(params[:user_id])
+
+    @event.invited_users.delete(@user)
+    flash[:danger] = " #{@user.name} dismissed!!!"
+    redirect_to "/events/#{@event.id}"
   end
 
   private
