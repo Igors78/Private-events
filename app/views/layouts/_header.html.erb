@@ -8,30 +8,16 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
-                <% if logged_in? %>
-                <li class="nav-item">
-                    <%= link_to "Users", users_path, class: 'nav-link' %>
-                </li>
-                <% end %>
+                <%= logged_links %>
                 <li class="nav-item">
                     <%= link_to "Events", root_path, class: 'nav-link' %>
                 </li>
-                <li><%= link_to 'New Event', new_event_path, class: 'nav-link' %></li>
+
 
             </ul>
             <div class="d-flex flex-column">
                 <ul class="nav navbar-right ">
-                <% if logged_in? %>
-
-                    <li><%= link_to current_user.name, user_path(current_user), class: "mx-2 text-white" %></li>
-                    <li><%= link_to "Log out", logout_path, class: "mx-2 text-white", method: :delete %></li>
-
-                <% else %>
-
-                    <li><%= link_to "Log in", login_path, class: "mx-2 text-white" %></li>
-                    <li><%= link_to "Sign up", signup_path, class: "mx-2 text-white" %></li>
-
-                <% end %>
+                <%= nav_links %>
                 </ul>
             </div>
         </div>
