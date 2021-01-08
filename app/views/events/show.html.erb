@@ -7,12 +7,7 @@
             <%= @event.location %>
             <%= @event.date %>
             <br>
-            <% if @event.invited_users.any? %>
-            <strong>Users invited:</strong> <br>
-            <% @event.invited_users.each do |user| %>
-            <%= user.name %>
-            <% end %>
-            <% end %>
+            <%= rsvp_user %>
             <br>
             <% if @event.attendees.any? %>
             <strong>Will attend:</strong> <br>
