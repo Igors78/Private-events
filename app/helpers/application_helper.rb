@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def nav_links
-    render inline:'
+    render inline: '
     <% if logged_in? %>
 
         <li><%= link_to current_user.name, user_path(current_user), class: "mx-2 text-white" %></li>

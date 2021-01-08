@@ -1,15 +1,15 @@
 module UsersHelper
   def check_user
-    if current_user?(@user)
-      content_tag(:a,
-                  link_to("Delete #{@user.name}", @user, method: :delete,
-                                                         data: { confirm: 'You sure?' },
-                                                         class: 'badge bg-secondary'))
-    end
+    return unless current_user?(@user)
+
+    content_tag(:a,
+                link_to("Delete #{@user.name}", @user, method: :delete,
+                                                       data: { confirm: 'You sure?' },
+                                                       class: 'badge bg-secondary'))
   end
 
   def check_access
-    render inline:'
+    render inline: '
     <div class="card" style="width: 18rem;">
     <% @user.invited_to_events.each do |event| %>
     <div class="card-body">
@@ -30,7 +30,7 @@ module UsersHelper
   end
 
   def user_attend
-    render inline:'
+    render inline: '
     <% @user.attended_events.each do |event| %>
       <div class="card-body">
           <h5 class="card-title"><%= event.location %></h5>

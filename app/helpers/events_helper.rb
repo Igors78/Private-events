@@ -1,6 +1,6 @@
 module EventsHelper
   def rsvp_user
-    render inline:'
+    render inline: '
     <% if @event.invited_users.any? %>
         <strong>Users invited:</strong> <br>
         <% @event.invited_users.each do |user| %>
@@ -10,7 +10,7 @@ module EventsHelper
   end
 
   def rsvp_attendee
-    render inline:'
+    render inline: '
     <% if @event.attendees.any? %>
         <strong>Will attend:</strong> <br>
         <% @event.attendees.each do |user| %>
