@@ -1,29 +1,32 @@
 <div class="row">
-    <div class="col-md-6">
-        <p>
-            Author: <%= @event.creator.name %> <br>
-            <strong>Event Description:</strong> <br>
-            <%= @event.description %>
-            <%= @event.location %>
-            <%= @event.date %>
-            <br>
-            <%= rsvp_user %>
-            <br>
-            <%= rsvp_attendee %>
+    <div class="col-md-8">
 
-        </p>
-        <small class="timestamp">
-            Posted <%= time_ago_in_words(@event.created_at) %> ago.
-            <% if current_user?(@event.creator) %>
-            <%= link_to "Delete", @event, method: :delete,
+        <div class="card p-2" style="width: 100%;">
+
+            <div class="card-body">
+                <p>Author: <%= @event.creator.name %> </p>
+                <h5 class="card-title"><%= @event.location %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= @event.date %></h6>
+                <p class="card-text"><%= @event.description %></p>
+
+                <%= rsvp_user %>
+
+                <%= rsvp_attendee %>
+            </div>
+
+            <small class="timestamp">
+                Posted <%= time_ago_in_words(@event.created_at) %> ago.
+                <% if current_user?(@event.creator) %>
+                <%= link_to "Delete", @event, method: :delete,
                                           data: { confirm: "You sure?" },
                                           class: "badge bg-warning" %>
-            <%= link_to 'Edit', edit_event_path(@event), class: "badge bg-warning" %>
-            <% end %>
-            <%= link_to 'Back', events_path, class: "badge bg-warning" %>
-        </small>
+                <%= link_to 'Edit', edit_event_path(@event), class: "badge bg-warning" %>
+                <% end %>
+                <%= link_to 'Back', events_path, class: "badge bg-warning" %>
+            </small>
+        </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h3>Users</h3>
         <ul class="users">
             <%  @users.each do |user|%>
