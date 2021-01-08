@@ -8,9 +8,9 @@ class EventTest < ActiveSupport::TestCase
 
   def test_should_create_event
     event = Event.new
-    event.description = "Test description"
-    event.location = "Test location"
-    event.date = "2020-01-06 10:12:00"
+    event.description = 'Test description'
+    event.location = 'Test location'
+    event.date = '2020-01-06 10:12:00'
     event.user_id = 1
     assert event.save
   end
