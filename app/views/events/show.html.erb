@@ -9,12 +9,7 @@
             <br>
             <%= rsvp_user %>
             <br>
-            <% if @event.attendees.any? %>
-            <strong>Will attend:</strong> <br>
-            <% @event.attendees.each do |user| %>
-            <%= user.name %>
-            <% end %>
-            <% end %>
+            <%= rsvp_attendee %>
 
         </p>
         <small class="timestamp">

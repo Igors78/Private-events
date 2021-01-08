@@ -6,7 +6,16 @@ module EventsHelper
         <% @event.invited_users.each do |user| %>
         <%= user.name %>
         <% end %>
-    <% end %>
-'
+    <% end %>'
+  end
+
+  def rsvp_attendee
+    render inline:'
+    <% if @event.attendees.any? %>
+        <strong>Will attend:</strong> <br>
+        <% @event.attendees.each do |user| %>
+        <%= user.name %>
+        <% end %>
+    <% end %>'
   end
 end
