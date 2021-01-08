@@ -43,7 +43,7 @@
     validations, callbacks, has_many/belongs_to and has_many :through
     associations, security, testing, and deployment.
 
-  [Live Demo Link](https://my-meetings-app.herokuapp.com/)
+  [Live Demo Link](https://private-events-application.herokuapp.com/)
 
 ## On your Computer
 
