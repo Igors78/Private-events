@@ -23,4 +23,10 @@ class EventTest < ActiveSupport::TestCase
     event_id = events(:tiki_party).id
     assert_nothing_raised { Event.find(event_id) }
   end
+
+  def test_should_destroy_event
+    event = events(:tiki_party)
+    event.destroy
+    assert_raise(ActiveRecord::RecordNotFound) { Event.find(event.id) }
+  end
 end
