@@ -14,9 +14,6 @@ class EventsTest < ApplicationSystemTestCase
     visit events_url
     click_on 'New Event'
 
-    fill_in 'Date', with: @event.date
-    fill_in 'Description', with: @event.description
-    fill_in 'Location', with: @event.location
     click_on 'Create Event'
 
     assert_text 'Event was successfully created'
@@ -27,9 +24,6 @@ class EventsTest < ApplicationSystemTestCase
     visit events_url
     click_on 'Edit', match: :first
 
-    fill_in 'Date', with: @event.date
-    fill_in 'Description', with: @event.description
-    fill_in 'Location', with: @event.location
     click_on 'Update Event'
 
     assert_text 'Event was successfully updated'
