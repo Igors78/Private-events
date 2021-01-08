@@ -17,9 +17,9 @@ class EventTest < ActiveSupport::TestCase
 
   test 'should be valid' do
     event = Event.new
-    event.description = "Test description"
-    event.location = "Test location"
-    event.date = "2020-01-06 10:12:00"
+    event.description = 'Test description'
+    event.location = 'Test location'
+    event.date = '2020-01-06 10:12:00'
     event.user_id = 1
     assert event.valid?
   end

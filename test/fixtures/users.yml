@@ -10,8 +10,6 @@ john:
   id: 1
   name: "John Wick"
 
-
 doe:
   id: 2
   name: "John Doe"
-
