@@ -6,6 +6,7 @@ module EventsHelper
         <% @event.invited_users.each do |user| %>
         <%= user.name %>
         <% end %>
+        <br>
     <% end %>'
   end
 

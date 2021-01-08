@@ -23,7 +23,11 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create event' do
     assert_difference('Event.count') do
-      post events_url, params: { event: {} }
+      post events_url, params: { event: { id: 1,
+                                          user_id: 1,
+                                          description: 'A wonderfully good time',
+                                          location: "Hampton's Apartment",
+                                          date: '2020-01-06 10:12:00' } }
     end
 
     assert_redirected_to event_url(Event.last)

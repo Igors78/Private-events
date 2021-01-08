@@ -11,7 +11,9 @@
   instance.
 - Identify the join model in a has many through.
 
-![screenshot]()
+![screenshot](screenshot.png)
+
+![screenshot](screenshot1.png)
 
 ### Project created for learning purposes, covering the basics of Ruby on Rails including, but not limited to
 
