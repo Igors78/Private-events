@@ -7,7 +7,4 @@ class Event < ApplicationRecord
   validates :description, :location, :date, presence: true
   scope :past, -> { where('date < ?', Date.today) }
   scope :upcoming, -> { where('date >= ?', Date.today) }
-  # validates_uniqueness_of :user_id,
-  #                        scope: 'event_id',
-  #                       message: 'is already going to the event'
 end
