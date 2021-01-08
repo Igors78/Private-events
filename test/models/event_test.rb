@@ -15,12 +15,23 @@ class EventTest < ActiveSupport::TestCase
     assert event.save
   end
 
-  # test 'should be valid' do
-  #   assert event.valid?
-  # end
+  test 'should be valid' do
+    event = Event.new
+    event.description = "Test description"
+    event.location = "Test location"
+    event.date = "2020-01-06 10:12:00"
+    event.user_id = 1
+    assert event.valid?
+  end
 
   def test_should_find_event
     event_id = events(:tiki_party).id
     assert_nothing_raised { Event.find(event_id) }
+  end
+
+  def test_should_destroy_event
+    event = events(:tiki_party)
+    event.destroy
+    assert_raise(ActiveRecord::RecordNotFound) { Event.find(event.id) }
   end
 end
