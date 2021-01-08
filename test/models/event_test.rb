@@ -1,15 +1,26 @@
-require 'test_helper'
+require './test/test_helper'
 
 class EventTest < ActiveSupport::TestCase
-  def setup
-    @user = User.new(name: 'John Wick')
-    @event = @user.events.build(description: 'Past Event Test Interface.',
-                                location: 'Microverse',
-                                date: '2020-01-06 10:12:00',
-                                user_id: @user.id)
+  fixtures :events, :users
+  # def test_truth
+  #   assert true
+  # end
+
+  def test_should_create_event
+    event = Event.new
+    event.description = "Test description"
+    event.location = "Test location"
+    event.date = "2020-01-06 10:12:00"
+    event.user_id = 1
+    assert event.save
   end
 
-  test 'should be valid' do
-    assert @event.valid?
+  # test 'should be valid' do
+  #   assert event.valid?
+  # end
+
+  def test_should_find_event
+    event_id = events(:tiki_party).id
+    assert_nothing_raised { Event.find(event_id) }
   end
 end
