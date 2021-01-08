@@ -2,7 +2,10 @@ require 'test_helper'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @event = events(:one)
+    @event = @user.events.build(description: 'Past Event Test Interface.',
+                                location: 'Microverse',
+                                date: '2020-01-06 10:12:00',
+                                user_id: @user.id)
   end
 
   # test 'should get index' do
