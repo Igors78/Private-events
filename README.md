@@ -67,12 +67,13 @@ To get a local copy up and running follow these simple example steps.
 - `install Rails`
 - `bundle install`
 - `rails db:migrate`
+- `rails db:seed` for sample populating the database
 
 ## Test
 
 - Run `rails test` in your terminal to see if all functional and integration
   tests are passing
-- Run `rails test test/system/events_test.rb` to see if system tests passing
+- Run `rails test:system` to see if system tests passing
 
 ## Usage
 
