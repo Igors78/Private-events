@@ -44,7 +44,13 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update event' do
-    patch event_url(@event), params: { event: {} }
+    post events_url, params: { event: { id: 1,
+                                        user_id: 1,
+                                        description: 'A wonderfully good time',
+                                        location: "Hampton's Apartment",
+                                        date: '2020-01-06 10:12:00' } }
+    @event = Event.last
+    patch event_url(@event), params: { event: { location: 'Riga' } }
     assert_redirected_to event_url(@event)
   end
 
