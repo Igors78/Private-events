@@ -68,6 +68,10 @@ To get a local copy up and running follow these simple example steps.
 - `bundle install`
 - `rails db:migrate`
 
+## Test
+
+- Run `rails test` in your terminal to see if all functional and integration tests are passing
+
 ## Usage
 
 - Go to respective directory and run

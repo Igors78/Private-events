@@ -13,6 +13,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get index' do
     get events_url
+
     assert_response :success
   end
 
@@ -31,6 +32,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to event_url(Event.last)
+    assert_equal 'Event has been created!', flash[:success]
   end
 
   test 'should show event' do
@@ -52,6 +54,8 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     @event = Event.last
     patch event_url(@event), params: { event: { location: 'Riga' } }
     assert_redirected_to event_url(@event)
+    @event.reload
+    assert_equal 'Riga', @event.location
   end
 
   test 'should destroy event' do
