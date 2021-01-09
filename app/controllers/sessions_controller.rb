@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     if user
       log_in user
       redirect_back_or user
+      flash[:success] = 'Successfully Logged In'
     else
       flash.now[:danger] = 'Invalid name'
       render 'new'
