@@ -61,6 +61,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Run `rails test:all` in your terminal to see if all
   tests are passing
+- Run `bundle exec rspec spec` to see if Rspec test unit passing
 
 ## Usage
 
