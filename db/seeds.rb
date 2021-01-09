@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# Create a main sample user.
+User.create!(name: 'example_user')
+# Generate fake users
 10.times do |_n|
   name = Faker::Name.name
   User.create!(name: name)
