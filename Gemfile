@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +50,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  
+
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
   # Easy installation and use of web drivers to run system tests with browsers
