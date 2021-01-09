@@ -55,10 +55,16 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy event' do
+    post events_url, params: { event: { id: 1,
+                                        user_id: 1,
+                                        description: 'A wonderfully good time',
+                                        location: "Hampton's Apartment",
+                                        date: '2020-01-06 10:12:00' } }
+    @event = Event.last
     assert_difference('Event.count', -1) do
       delete event_url(@event)
     end
 
-    assert_redirected_to events_url
+    assert_redirected_to root_path
   end
 end
