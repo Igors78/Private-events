@@ -25,3 +25,9 @@ tiki_party:
   description: "A wonderfully good time"
   location: "Hampton's Apartment"
   date: "2020-01-06 10:12:00"
+
+one:
+  description: MyText
+  location: MyString
+  date: 2021-01-03 21:07:29
+  user_id: 1

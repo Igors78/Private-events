@@ -11,31 +11,56 @@ class EventsTest < ApplicationSystemTestCase
   end
 
   test 'creating a Event' do
+    visit signup_url
+    fill_in 'Name', with: 'Chuck'
+    click_on 'Create my account'
     visit events_url
     click_on 'New Event'
+    fill_in 'Location', with: 'Riga'
+    fill_in 'Description', with: 'Description Riga'
 
     click_on 'Create Event'
 
-    assert_text 'Event was successfully created'
+    assert_text 'Event has been created!'
     click_on 'Back'
   end
 
   test 'updating a Event' do
+    visit signup_url
+    fill_in 'Name', with: 'Chuck'
+    click_on 'Create my account'
     visit events_url
-    click_on 'Edit', match: :first
+    click_on 'New Event'
+    fill_in 'Location', with: 'Riga'
+    fill_in 'Description', with: 'Description Riga'
 
+    click_on 'Create Event'
+
+    assert_text 'Event has been created!'
+
+    click_on 'Edit'
     click_on 'Update Event'
-
-    assert_text 'Event was successfully updated'
+    assert_text 'Event updated'
     click_on 'Back'
   end
 
   test 'destroying a Event' do
+    visit signup_url
+    fill_in 'Name', with: 'Chuck'
+    click_on 'Create my account'
     visit events_url
-    page.accept_confirm do
-      click_on 'Destroy', match: :first
+    click_on 'New Event'
+    fill_in 'Location', with: 'Riga'
+    fill_in 'Description', with: 'Description Riga'
+
+    click_on 'Create Event'
+
+    assert_text 'Event has been created!'
+
+    accept_alert do
+      click_on 'Delete'
     end
 
-    assert_text 'Event was successfully destroyed'
+    assert_text 'Event has been deleted'
   end
 end
