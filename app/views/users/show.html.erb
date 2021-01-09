@@ -7,9 +7,9 @@
 
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h3>Created Events:</h3>
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 100%;">
             <% @user.events.each do |event| %>
             <div class="card-body">
                 <h5 class="card-title"><%= event.location %></h5>
@@ -20,18 +20,24 @@
             <% end %>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h3>Invited to Events:</h3>
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 100%;">
             <%= check_access %>
         </div>
 
     </div>
 
-    <div class="col-md-4">
-        <h3>Will attend Events:</h3>
-        <div class="card" style="width: 18rem;">
+    <div class="col-md-3">
+        <h3>Attended Events:</h3>
+        <div class="card" style="width: 100%;">
             <%= user_attend %>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3>Will attend Events:</h3>
+        <div class="card" style="width: 100%;">
+            <%= user_attend_upcom %>
         </div>
     </div>
 </div>
