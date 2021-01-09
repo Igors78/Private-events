@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users do
+  resources :users, only: [:index, :show, :new, :create, :destroy] do
     member do
       get '/accept_invite', to: 'users#accept_invite'
       get '/decline_invite', to: 'users#decline_invite'
