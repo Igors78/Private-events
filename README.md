@@ -29,7 +29,9 @@
 
 ## Getting Started
 
-- This app is functional event organizer. Users can create events and invite other users or dismiss existing invites they made. Each user sees relevant events on his/her profile and can accept or decline invites from others
+- This app is functional event organizer. Users can create events and invite
+  other users or dismiss existing invites they made. Each user sees relevant
+  events on his/her profile and can accept or decline invites from others
 
   [Live Demo Link](https://private-events-application.herokuapp.com/)
 
@@ -59,8 +61,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Test
 
-- Run `rails test:all` in your terminal to see if all
-  tests are passing
+- Run `rails test:all` in your terminal to see if all tests are passing
 - Run `bundle exec rspec spec` to see if Rspec test unit passing
 
 ## Usage
