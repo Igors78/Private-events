@@ -227,7 +227,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
-  capybara (>= 3.26)
+  capybara (~> 3.34)
   faker (~> 2.15, >= 2.15.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)

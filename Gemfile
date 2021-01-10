@@ -49,7 +49,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
+  gem 'capybara', '~> 3.34'
 
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
