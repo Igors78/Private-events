@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-8">
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+        <div class="card p-2" style="width: 100%;">
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+            <div class="card-body">
+                <p>Author: <%= @event.creator.name %> </p>
+                <h5 class="card-title"><%= @event.location %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= @event.date %></h6>
+                <p class="card-text"><%= @event.description %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+                <%= rsvp_user %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+                <%= rsvp_attendee %>
+            </div>
+
+            <small class="timestamp">
+                Posted <%= time_ago_in_words(@event.created_at) %> ago.
+                <%= handling_links %>
+            </small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>Users</h3>
+        <ul class="users">
+            <%= user_links %>
+        </ul>
+    </div>
+</div>

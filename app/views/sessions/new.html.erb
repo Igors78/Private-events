@@ -1,14 +1,14 @@
 <h1 class='text-center'>Log in</h1>
 
-<div class="row">
-    <div class="col-md-4 offset-4">
+<div class="container">
+    <div class="col-md-4 mx-auto">
         <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
 
 
-        <%= f.submit "Log in", class: " mt-2 btn btn-primary" %>
+        <%= f.submit "Sign in", class: " mt-2 btn btn-primary" %>
         <% end %>
 
     </div>

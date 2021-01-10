@@ -13,6 +13,8 @@
 
 ![screenshot](screenshot.png)
 
+![screenshot](screenshot1.png)
+
 ### Project created for learning purposes, covering the basics of Ruby on Rails including, but not limited to
 
 - Models, Views, and Controllers (MVC)
@@ -23,25 +25,15 @@
 - RESTful design
 - Adding gems for extra features
 - Authentication
-- InApp email sending
-- Data storage at external source (Amazon AWS bucket)
-- Active Storage usage (Images uploading)
 - Multiple level data models associations and relationships
 
 ## Getting Started
 
-- This app is functional micro post blog with the possibility to create,read and
-  delete posts (Admin only has access to delete). To access full functionality,
-  the user should log in, if an account exists, or create one as a new user
-  through email authentication process. The app is connected to the database
-  accordingly, Amazon bucket used as external storage.
+- This app is functional event organizer. Users can create events and invite
+  other users or dismiss existing invites they made. Each user sees relevant
+  events on his/her profile and can accept or decline invites from others
 
-  - This application includes examples of all the major features of Rails,
-    including models, views, controllers, templates, partials, filters,
-    validations, callbacks, has_many/belongs_to and has_many :through
-    associations, security, testing, and deployment.
-
-  [Live Demo Link](https://my-meetings-app.herokuapp.com/)
+  [Live Demo Link](https://private-events-application.herokuapp.com/)
 
 ## On your Computer
 
@@ -65,6 +57,12 @@ To get a local copy up and running follow these simple example steps.
 - `install Rails`
 - `bundle install`
 - `rails db:migrate`
+- `rails db:seed` for sample populating the database
+
+## Test
+
+- Run `rails test:all` in your terminal to see if all tests are passing
+- Run `bundle exec rspec spec` to see if Rspec test unit passing
 
 ## Usage
 
@@ -75,11 +73,11 @@ To get a local copy up and running follow these simple example steps.
 ## Built with
 
 - Ruby 2.7.0
-- Ruby on Rails 6.0.3.4
+- Ruby on Rails 6.1.0
 - Bootstrap
 - Gems used listed in Gemfile
 
-## Author
+## Authors
 
 👤 **Igors Oleinikovs**
 
@@ -87,6 +85,13 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@oleinikovs](https://twitter.com/oleinikovs)
 - LinkedIn:
   [Oleinikovs Igors](https://www.linkedin.com/in/igors-oleinikovs-17a10958/)
+
+  👤 **Oluwaseun Iyadi**
+
+- Github: [@CornerstoneII](https://github.com/CornerstoneII)
+- Twitter: [@It_Iz_I](https://twitter.com/It_Iz_I)
+- Linkedin:
+  [Oluwaseun Iyadi](https://www.linkedin.com/in/oluwaseun-iyadi-773584b4/)
 
 ## 🤝 Contributing
 
