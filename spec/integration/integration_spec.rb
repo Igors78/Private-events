@@ -67,3 +67,70 @@ RSpec.describe 'Visit home page', type: :feature do
     assert_text 'User deleted'
   end
 end
+
+RSpec.describe Event, type: :feature do
+  let(:user) { User.new(name: 'Chuck') }
+  subject do
+    described_class.new(description: 'Description',
+                        date: DateTime.now,
+                        location: 'Riga')
+  end
+  scenario 'visit index' do
+    visit events_path
+    assert_selector 'h1', text: 'Events'
+  end
+
+  scenario 'creating a Event' do
+    visit signup_path
+    fill_in 'Name', with: 'Chuck'
+    click_on 'Create my account'
+    visit events_path
+    click_on 'New Event'
+    fill_in 'Location', with: 'Riga'
+    fill_in 'Description', with: 'Description Riga'
+
+    click_on 'Create Event'
+
+    assert_text 'Event has been created!'
+    click_on 'Back'
+  end
+
+  scenario 'updating a Event' do
+    visit signup_path
+    fill_in 'Name', with: 'Chuck'
+    click_on 'Create my account'
+    visit events_path
+    click_on 'New Event'
+    fill_in 'Location', with: 'Riga'
+    fill_in 'Description', with: 'Description Riga'
+
+    click_on 'Create Event'
+
+    assert_text 'Event has been created!'
+
+    click_on 'Edit'
+    click_on 'Update Event'
+    assert_text 'Event updated'
+    click_on 'Back'
+  end
+
+  scenario 'destroying a Event' do
+    visit signup_path
+    fill_in 'Name', with: 'Chuck'
+    click_on 'Create my account'
+    visit events_path
+    click_on 'New Event'
+    fill_in 'Location', with: 'Riga'
+    fill_in 'Description', with: 'Description Riga'
+
+    click_on 'Create Event'
+
+    assert_text 'Event has been created!'
+
+    accept_alert do
+      click_on 'Delete'
+    end
+
+    assert_text 'Event has been deleted'
+  end
+end
