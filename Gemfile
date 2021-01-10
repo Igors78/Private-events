@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+gem 'apparition'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
