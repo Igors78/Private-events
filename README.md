@@ -86,7 +86,7 @@ To get a local copy up and running follow these simple example steps.
 - LinkedIn:
   [Oleinikovs Igors](https://www.linkedin.com/in/igors-oleinikovs-17a10958/)
 
-  👤 **Oluwaseun Iyadi**
+👤 **Oluwaseun Iyadi**
 
 - Github: [@CornerstoneII](https://github.com/CornerstoneII)
 - Twitter: [@It_Iz_I](https://twitter.com/It_Iz_I)
@@ -104,7 +104,6 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Ruby documentation
-- [Ruby Guides](https://www.rubyguides.com/)
 - [Michael Hartl](https://www.michaelhartl.com/)
 
 ## 📝 License
