@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attendee: one
+  attended_event: one
+  user_id: 1
+  event_id: 1
+
+two:
+  attendee: two
+  attended_event: two
+  user_id: 2
+  event_id: 2

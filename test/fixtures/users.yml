@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+
+two:
+  name: MyString
+
+john:
+  id: 1
+  name: "John Wick"
+
+doe:
+  id: 2
+  name: "John Doe"

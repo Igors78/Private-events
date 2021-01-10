@@ -1,0 +1,43 @@
+<h3 class='text-center'>
+    <%= @user.name %></h3>
+<p class='text-center'>
+    <%= check_user %>
+</p>
+
+
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>Created Events:</h3>
+        <div class="card" style="width: 100%;">
+            <% @user.events.each do |event| %>
+            <div class="card-body">
+                <h5 class="card-title"><%= event.location %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= event.date %></h6>
+                <p class="card-text"><%= event.description %></p>
+                <a href="#" class="card-link"><%= link_to "Show", event %></a>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3>Invited to Events:</h3>
+        <div class="card" style="width: 100%;">
+            <%= check_access %>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        <h3>Attended Events:</h3>
+        <div class="card" style="width: 100%;">
+            <%= user_attend %>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3>Will attend Events:</h3>
+        <div class="card" style="width: 100%;">
+            <%= user_attend_upcom %>
+        </div>
+    </div>
+</div>

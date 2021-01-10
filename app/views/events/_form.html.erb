@@ -1,32 +1,22 @@
-<%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= form_with(model: event, local: true) do |form| %>
+<%= render 'shared/error_messages', object: form.object %>
 
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="form-group mb-3">
+    <%= form.label :location, class: "form-label" %>
+    <%= form.text_field :location, class: "form-control" %>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+<div class="form-group mb-3">
+    <%= form.label :date, class: "form-label" %><br/>
+    <%= form.datetime_select :date, class: "datepicker" %>
+</div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
+<div class="form-group mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description,  class: "form-control" %>
+</div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit( class: 'btn btn-primary' ) %>
+</div>
 <% end %>
