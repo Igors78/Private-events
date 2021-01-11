@@ -51,7 +51,7 @@ To get a local copy up and running follow these simple example steps.
 ## Install
 
 - Go to your preferred directory
-- Run `git clone https://github.com/Igors78/Post-Blog-Service.git` command
+- Run `git clone https://github.com/Igors78/Private-events.git` command
 - Install Rails with all dependencies in order to run local server and app in
   it:
 - `install Rails`
